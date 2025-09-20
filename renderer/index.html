@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cléo – Assistente Comercial</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <button
+            id="collapse"
+            class="collapse-btn"
+            title="Recolher barra lateral"
+            aria-label="Recolher barra lateral"
+          >
+            <svg viewBox="0 0 24 24" class="icon">
+              <path d="M14 7l-5 5 5 5" />
+            </svg>
+          </button>
+          <div class="search">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M21 21l-4.3-4.3"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <circle
+                cx="11"
+                cy="11"
+                r="7"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+            <input id="search" type="text" placeholder="Buscar" />
+          </div>
+
+          <nav class="primary-nav">
+            <button class="nav-item selected" title="elektron">
+              <img
+                src="../assets/ElekTron_ALPHA.png"
+                alt="elektron"
+                class="nav-icon"
+              />
+              <span>ElekTron</span>
+            </button>
+          </nav>
+
+          <div class="sep"></div>
+
+          <div class="folders" aria-label="Pastas">
+            <button id="folder-google" class="folder" title="Calendário">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2V7z"
+                />
+              </svg>
+              <span>Google Agenda</span>
+            </button>
+            <button id="folder-decupagem" class="folder" title="Decupagem">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2V7z"
+                />
+              </svg>
+              <span>Decupagem</span>
+            </button>
+            <button id="folder-ffmpeg" class="folder" title="FFmpeg">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2V7z"
+                />
+              </svg>
+              <span>FFmpeg</span>
+            </button>
+            <button id="folder-chatek" class="folder" title="ChatEK">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2V7z"
+                />
+              </svg>
+              <span>ChatEK</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button id="openSettings" class="link-item">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <!-- Engrenagem com 8 dentes e furo central -->
+              <circle cx="12" cy="12" r="3" />
+              <circle cx="12" cy="12" r="7" />
+              <!-- Dentes principais -->
+              <rect x="11" y="2" width="2" height="4" rx="0" />
+              <rect x="11" y="18" width="2" height="4" rx="0" />
+              <rect x="2" y="11" width="4" height="2" rx="0" />
+              <rect x="18" y="11" width="4" height="2" rx="0" />
+              <!-- Dentes diagonais -->
+              <g transform="rotate(45 12 12)">
+                <rect x="11" y="2" width="2" height="4" rx="0" />
+                <rect x="11" y="18" width="2" height="4" rx="0" />
+                <rect x="2" y="11" width="4" height="2" rx="0" />
+                <rect x="18" y="11" width="4" height="2" rx="0" />
+              </g>
+            </svg>
+            <span>Configurações</span>
+          </button>
+          <div class="user-card">
+            <img src="../assets/icon.jpg" alt="Avatar" />
+            <div class="user-name">André Mello</div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="chat">
+        <header class="chat-header">
+          <div class="chat-title">ElekTron v1</div>
+          <div class="chat-actions">
+            <button
+              class="icon-btn"
+              title="Compartilhar"
+              aria-label="Compartilhar"
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                <path
+                  d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <path
+                  d="M8 7l4-4 4 4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M12 3v12" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </button>
+            <button class="icon-btn" title="Exportar" aria-label="Exportar">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                <path
+                  d="M4 20h16M7 16h10a2 2 0 002-2V6a2 2 0 00-2-2H7a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="chat-main">
+          <aside id="calendar-rail" class="cal-rail" hidden aria-label="Mini calendário"></aside>
+          <section
+            id="calendar-pane"
+            class="calendar-pane"
+            hidden
+            aria-label="Painel do calendário"
+          >
+            <header class="calendar-toolbar">
+              <div class="cal-toolbar-left">
+                <button id="calendar-today" class="cal-pill" type="button">Hoje</button>
+                <div class="cal-nav">
+                  <button
+                    id="calendar-prev"
+                    class="cal-icon-btn"
+                    type="button"
+                    aria-label="Anterior"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                  </button>
+                  <button
+                    id="calendar-next"
+                    class="cal-icon-btn"
+                    type="button"
+                    aria-label="Próximo"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M9 6l6 6-6 6" />
+                    </svg>
+                  </button>
+                </div>
+                <div id="calendar-range" class="cal-range" aria-live="polite"></div>
+              </div>
+              <div class="cal-toolbar-right">
+                <div id="calendar-view-switch" class="cal-view-switch" role="tablist" aria-label="Alterar visualização">
+                  <button class="cal-view-btn is-active" data-cal-view="day" type="button" role="tab" aria-selected="true">Dia</button>
+                  <button class="cal-view-btn" data-cal-view="week" type="button" role="tab" aria-selected="false">Semana</button>
+                  <button class="cal-view-btn" data-cal-view="month" type="button" role="tab" aria-selected="false">Mês</button>
+                  <button class="cal-view-btn" data-cal-view="year" type="button" role="tab" aria-selected="false">Ano</button>
+                  <button class="cal-view-btn" data-cal-view="agenda" type="button" role="tab" aria-selected="false">Programação</button>
+                </div>
+              </div>
+            </header>
+            <div id="calendar-board" class="calendar-board" role="region" aria-live="polite"></div>
+          </section>
+          <section id="messages" class="messages" aria-live="polite"></section>
+        </div>
+
+        <footer class="composer">
+          <div class="input-wrap">
+            <textarea
+              id="input"
+              class="input"
+              rows="1"
+              placeholder="Pergunte alguma coisa"
+            ></textarea>
+            <div id="attach-preview" class="attach-preview"></div>
+            <div class="toolbar">
+              <div class="left-tools">
+                <button id="attach-btn" class="tbtn" title="Anexo" aria-label="Anexo">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M8 12l6-6a4 4 0 115.7 5.7l-7.1 7.1a6 6 0 11-8.5-8.5l7.1-7.1"
+                    />
+                  </svg>
+                </button>
+                <input id="file-input" type="file" hidden />
+              </div>
+              <div class="right-tools">
+                <button
+                  id="send"
+                  class="send-in"
+                  aria-label="Enviar mensagem"
+                  title="Enviar (Enter)"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 17V7M12 7l-3 3M12 7l3 3"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <!-- Embed do Mattermost (ChatEK) -->
+        <div id="mm-embed" class="mm-embed">
+          <webview id="mm-webview" src="" allowpopups style="width:100%;height:100%;display:block;"></webview>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modal de agendamento -->
+    <div id="schedule-modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-card">
+        <header class="modal-header">
+          <div class="modal-title">Agendar reunião</div>
+          <button class="modal-close" data-close aria-label="Fechar">✕</button>
+        </header>
+        <div class="modal-body">
+          <label>
+            Título
+            <input
+              type="text"
+              id="sch-title"
+              placeholder="Ex.: Alinhamento do Projeto"
+            />
+          </label>
+          <div class="row">
+            <label>
+              Data (DD/MM/AAAA)
+              <div class="dual-input">
+                <input
+                  type="text"
+                  id="sch-date-text"
+                  placeholder="07/09/2025"
+                  inputmode="numeric"
+                />
+                <input
+                  type="date"
+                  id="sch-date"
+                  aria-label="Abrir calendário"
+                />
+                <button
+                  type="button"
+                  id="date-btn"
+                  class="date-btn"
+                  aria-label="Abrir calendário"
+                >
+                  <svg viewBox="0 0 24 24" class="icon">
+                    <rect x="3" y="5" width="18" height="16" rx="2" />
+                    <path d="M8 3v4M16 3v4M3 11h18" />
+                  </svg>
+                </button>
+              </div>
+            </label>
+            <label style="grid-column: 2">
+              Hora
+              <div class="with-icon">
+                <input type="time" id="sch-time" value="09:00" />
+                <button
+                  type="button"
+                  id="time-btn"
+                  class="icon-btn-in"
+                  aria-label="Selecionar hora"
+                >
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 7v5l3 2" />
+                  </svg>
+                </button>
+              </div>
+            </label>
+            <label>
+              Duração (min)
+              <div class="with-icon">
+                <input
+                  type="number"
+                  id="sch-duration"
+                  value="30"
+                  min="5"
+                  step="5"
+                />
+                <button
+                  type="button"
+                  id="dur-btn"
+                  class="icon-btn-in"
+                  aria-label="Ajustar duração"
+                >
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 2v4M18 2v4M6 22v-4M18 22v-4" />
+                    <rect x="4" y="6" width="16" height="12" rx="2" />
+                  </svg>
+                </button>
+              </div>
+            </label>
+          </div>
+          <label>
+            Participantes (e-mails separados por vírgula)
+            <input
+              type="text"
+              id="sch-attendees"
+              placeholder="ana@empresa.com, joao@empresa.com"
+            />
+          </label>
+          <label>
+            Descrição (opcional)
+            <textarea
+              id="sch-desc"
+              rows="3"
+              placeholder="Contexto e pauta"
+            ></textarea>
+          </label>
+        </div>
+        <footer class="modal-footer">
+          <button id="sch-cancel" class="btn ghost" data-close>Cancelar</button>
+          <button id="sch-submit" class="btn primary">Agendar</button>
+        </footer>
+      </div>
+    </div>
+    
+    <!-- Modal de exclusão de evento -->
+    <div id="event-delete-modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-card narrow">
+        <header class="modal-header">
+          <div class="modal-title">Excluir evento</div>
+          <button class="modal-close" data-close aria-label="Fechar">✕</button>
+        </header>
+        <div class="modal-body">
+          <p id="event-delete-message">
+            Tem certeza de que deseja excluir este evento?
+          </p>
+        </div>
+        <footer class="modal-footer">
+          <button id="event-delete-cancel" class="btn ghost" data-close>Cancelar</button>
+          <button id="event-delete-confirm" class="btn danger">Deletar</button>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Modal de configurações -->
+    <div id="settings-modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-card">
+        <header class="modal-header">
+          <div class="modal-title">Configurações – n8n</div>
+          <button class="modal-close" data-close aria-label="Fechar">✕</button>
+        </header>
+        <div class="modal-body">
+          <label
+            >Webhook URL (produção)
+            <input
+              type="text"
+              id="cfg-url"
+              placeholder="https://…/webhook/schedule-meet"
+            />
+          </label>
+          <div class="row">
+            <label
+              >Método
+              <select id="cfg-method">
+                <option value="POST">POST</option>
+                <option value="GET">GET</option>
+              </select>
+            </label>
+            <label
+              >Authorization header
+              <input
+                type="text"
+                id="cfg-auth"
+                placeholder="Bearer xxx ou chave"
+              />
+            </label>
+          </div>
+          <div class="sep" style="margin: 8px 0"></div>
+          <label>
+            Histórico: tamanho máximo (mensagens)
+            <input type="number" id="cfg-hist" value="500" min="50" step="50" />
+          </label>
+        </div>
+        <footer class="modal-footer">
+          <button id="cfg-clear" class="btn ghost">Limpar histórico</button>
+          <button id="cfg-test" class="btn ghost">Testar</button>
+          <button id="cfg-save" class="btn primary">Salvar</button>
+        </footer>
+      </div>
+    </div>
+
+    <div id="event-context-menu" class="context-menu" hidden role="menu">
+      <button id="event-delete-action" type="button" role="menuitem">
+        Deletar evento
+      </button>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

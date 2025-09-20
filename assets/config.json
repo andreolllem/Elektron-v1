@@ -1,0 +1,8 @@
+{
+  "n8nScheduleWebhook": "https://whats-bot-n8n.6pqq0m.easypanel.host/webhook/c2ae36bf-bba1-4e52-b006-2b73172e4179",
+  "n8nMethod": "POST",
+  "n8nHeaders": {
+    "Authorization": "",
+    "Content-Type": "application/json"
+  }
+}

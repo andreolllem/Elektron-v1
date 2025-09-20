@@ -1,0 +1,45 @@
+{
+  "name": "cleo-assistente-comercial",
+  "productName": "ElekTron",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Aplicativo desktop Electron estilo chat para assistente comercial Cléo.",
+  "main": "main/main.js",
+  "type": "module",
+  "author": "André Ollem",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --mac dmg",
+    "icon": "node scripts/gen-icon.js"
+  },
+  "build": {
+    "appId": "com.cleo.assistente",
+    "productName": "ElekTron",
+    "icon": "assets/icon.png",
+    "files": [
+      "main/**/*",
+      "renderer/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "dmg",
+      "icon": "dist/.icon-icns/icon.icns"
+    },
+    "dmg": {
+      "backgroundColor": "#0b0f14"
+    }
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^5.1.0"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.6.4",
+    "sharp": "^0.33.4"
+  }
+}

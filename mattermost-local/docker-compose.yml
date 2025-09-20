@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:15
+    container_name: mattermost-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=mmuser
+      - POSTGRES_PASSWORD=mmuser_password
+      - POSTGRES_DB=mattermost
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+
+  app:
+    image: mattermost/mattermost-team-edition:latest
+    container_name: mattermost-app
+    restart: always
+    depends_on:
+      - db
+    command: ["mattermost", "server"]
+    ports:
+      - "8065:8065"
+    environment:
+      - MM_CONFIG=/mattermost/config/config.json
+      - MM_SQLSETTINGS_DRIVERNAME=postgres
+      - MM_SQLSETTINGS_DATASOURCE=postgres://mmuser:mmuser_password@db:5432/mattermost?sslmode=disable&connect_timeout=10
+      - MM_SERVICESETTINGS_SITEURL=http://localhost:8065
+    volumes:
+      - ./data/app/mattermost:/mattermost/data
+      - ./data/app/config:/mattermost/config
+      - ./data/app/logs:/mattermost/logs
+      - ./data/app/plugins:/mattermost/plugins
+      - ./data/app/client-plugins:/mattermost/client/plugins
