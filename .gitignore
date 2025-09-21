@@ -1,4 +1,65 @@
+# ===============================
+# Node.js / Electron .gitignore
+# ===============================
+
+# Dependências
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Builds e distribuições
 dist/
+out/
+build/
+release/
+
+# Aplicativos gerados
+*.exe
+*.msi
 *.dmg
 *.app
+*.deb
+*.snap
+*.tar.gz
+*.zip
+
+# Configurações locais
 .env
+.env.local
+.env.*.local
+
+# Cache
+.cache/
+.tmp/
+temp/
+*.swp
+
+# Logs
+logs
+*.log
+
+# Sistema / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Electron
+electron-builder.yaml
+electron-builder.yml
+*.asar
+
+# Arquivos temporários
+*.pid
+*.seed
+*.pid.lock
+
+# GitHub
+.gitattributes.lock
